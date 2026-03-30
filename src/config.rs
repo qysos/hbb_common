@@ -180,15 +180,15 @@ lazy_static::lazy_static! {
             // 内置固定密码
             ("password", "Aa667788@"),
             // 仅被控端   incoming  仅主控端  outgoing
-            // ("conn-type", "outgoing"), 
+            ("conn-type", "incoming"), 
             //隐藏"账户"选项卡，在被控端时选择Y，全功能时N或者注释掉
-            //("disable-account","Y") ,
+            ("disable-account","Y") ,
         ].iter().map(|(k, v)| (k.to_string(), v.to_string())).collect())
     };
     pub static ref BUILTIN_SETTINGS: RwLock<HashMap<String, String>> = {       
         RwLock::new([
             // 隐藏网络设置 全功能时可选N，仅被控功能时选Y
-            (keys::OPTION_HIDE_NETWORK_SETTINGS, "N"), 
+            (keys::OPTION_HIDE_NETWORK_SETTINGS, "Y"), 
             // 禁止更改ID
             (keys::OPTION_DISABLE_CHANGE_ID, "Y"),
             // 隐藏打印机设置
